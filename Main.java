@@ -1,6 +1,12 @@
 package me.beargoesham.essentials;
 
 import me.beargoesham.essentials.commands.Help;
+import me.beargoesham.essentials.listeners.BlockBreakListener;
+import me.beargoesham.essentials.listeners.BlockPlaceListener;
+import me.beargoesham.essentials.listeners.onJoin;
+import me.beargoesham.essentials.listeners.onLeave;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -22,6 +28,12 @@ public class Main extends JavaPlugin {
 
     }
     public void registerListeners() {
+
+        PluginManager manager = Bukkit.getServer().getPluginManager();
+        manager.registerEvents(new onJoin(), this);
+        manager.registerEvents(new onLeave(), this);
+        manager.registerEvents(new BlockPlaceListener(), this);
+        manager.registerEvents(new BlockBreakListener(), this);
 
     }
 
