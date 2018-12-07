@@ -1,5 +1,6 @@
 package me.beargoesham.essentials.commands;
 
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -19,11 +20,13 @@ public class Help implements CommandExecutor {
                 TextComponent help = new TextComponent("List Of Commands");
                 help.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("List Of Commands").create()));
                 help.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, ""));
+                help.setColor(ChatColor.DARK_AQUA);
+                p.sendMessage(ChatColor.DARK_AQUA + "----------------------------------------");
+                p.spigot().sendMessage(help);
+                p.sendMessage(ChatColor.DARK_AQUA + "----------------------------------------");
             }
         }
 
-
         return false;
     }
-
 }

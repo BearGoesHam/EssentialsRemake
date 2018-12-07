@@ -1,4 +1,25 @@
 package me.beargoesham.essentials.listeners;
 
-public class onJoin {
+import me.beargoesham.essentials.Main;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+
+public class onJoin implements Listener {
+
+    Main plugin;
+
+    @EventHandler
+    public void onJoin(PlayerJoinEvent e) {
+        Player p = e.getPlayer();
+        String msg = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("joinmsg"));
+        String m1 = msg.replace(plugin.getConfig().getString("%player_name%"), p.getName());
+        for(Player players : Bukkit.getServer().getOnlinePlayers()) {
+            players.sendMessage(m1);
+        }
+    }
+
 }
