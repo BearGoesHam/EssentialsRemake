@@ -1,5 +1,6 @@
 package me.beargoesham.essentials;
 
+import me.beargoesham.essentials.commands.Broadcast;
 import me.beargoesham.essentials.commands.Help;
 import me.beargoesham.essentials.listeners.BlockBreakListener;
 import me.beargoesham.essentials.listeners.BlockPlaceListener;
@@ -25,6 +26,7 @@ public class Main extends JavaPlugin {
     public void registerCommands() {
 
         getCommand("help").setExecutor(new Help());
+        getCommand("bc").setExecutor(new Broadcast());
 
     }
     public void registerListeners() {
