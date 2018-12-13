@@ -2,6 +2,7 @@ package me.beargoesham.essentials;
 
 import me.beargoesham.essentials.commands.Broadcast;
 import me.beargoesham.essentials.commands.Help;
+import me.beargoesham.essentials.file.FileManager;
 import me.beargoesham.essentials.listeners.BlockBreakListener;
 import me.beargoesham.essentials.listeners.BlockPlaceListener;
 import me.beargoesham.essentials.listeners.onJoin;
@@ -12,10 +13,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
+    FileManager fileManager;
+
     public void onEnable() {
 
         registerCommands();
         registerListeners();
+
+        this.getConfig().options().copyDefaults(true);
+        saveConfig();
 
     }
     public void onDisable() {

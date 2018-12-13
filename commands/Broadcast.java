@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 
 public class Broadcast implements CommandExecutor {
 
+
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if(cmd.getName().equalsIgnoreCase("bc")) {
             if(sender instanceof Player) {
