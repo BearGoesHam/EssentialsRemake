@@ -1,6 +1,7 @@
 package me.beargoesham.essentials.listeners;
 
 import me.beargoesham.essentials.Main;
+import me.beargoesham.essentials.file.FileManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -11,6 +12,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class onJoin implements Listener {
 
     Main plugin;
+    FileManager manager;
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
@@ -20,6 +22,15 @@ public class onJoin implements Listener {
         for(Player players : Bukkit.getServer().getOnlinePlayers()) {
             players.sendMessage(m1);
         }
+        try
+        {
+            manager.createPlayerFile(p);
+        } catch(Exception exception)
+        {
+         exception.printStackTrace();
+        }
+
+
     }
 
 }

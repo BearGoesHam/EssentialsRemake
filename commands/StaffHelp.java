@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 public class StaffHelp implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if(cmd.getName().equalsIgnoreCase("shelp")) {
+        if(cmd.getName().equalsIgnoreCase("helpop")) {
             if(sender instanceof Player) {
                 Player player = (Player) sender;
                 String msg = "";

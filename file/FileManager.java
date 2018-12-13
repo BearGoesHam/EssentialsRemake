@@ -3,9 +3,11 @@ package me.beargoesham.essentials.file;
 import me.beargoesham.essentials.Main;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
 public class FileManager {
 
@@ -26,5 +28,13 @@ public class FileManager {
             e.printStackTrace();
         }
     }
+    public void createPlayerFile(Player player)
+    {
+        UUID uuid = player.getUniqueId();
+        String filename = uuid.toString();
+        this.createFile(filename);
+
+    }
+
 
 }
