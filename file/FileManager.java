@@ -13,8 +13,13 @@ public class FileManager {
 
     Main main;
 
+
+    //private String fileName;
+    //private String path;
+    ////private File file = new File(main.getDataFolder() + "/" + fileName + ".yml");
     public void createFile(String filename)
     {
+        //this.fileName = filename;
         File customYml = new File(main.getDataFolder() + "/" + filename + ".yml");
         FileConfiguration customConfig = YamlConfiguration.loadConfiguration(customYml);
 
@@ -32,8 +37,17 @@ public class FileManager {
     {
         UUID uuid = player.getUniqueId();
         String filename = uuid.toString();
+        File file = new File(main.getDataFolder() + "/" + filename + ".yml");
+
         this.createFile(filename);
 
+    }
+
+
+    public File getFile(String filename)
+    {
+        File file = new File(main.getDataFolder() + "/" + filename + ".yml");
+        return file;
     }
 
 
